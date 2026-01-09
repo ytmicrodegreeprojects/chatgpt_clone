@@ -1,12 +1,11 @@
 # Next.js AI App
 
-A modern, full-stack Next.js application that demonstrates AI-powered text generation and streaming capabilities using OpenAI's GPT models. This project showcases two different approaches to AI integration: traditional completion requests and real-time streaming responses.
+A modern, full-stack Next.js application that demonstrates real-time text streaming capabilities using OpenAI's GPT models.
 
 ## 🚀 Features
 
-- **AI Text Completion**: Generate complete text responses using OpenAI's GPT models
 - **Real-time Streaming**: Experience live text streaming as responses are generated
-- **Interactive Chat Interfaces**: User-friendly chat UIs for both completion modes
+- **Interactive Chat Interface**: User-friendly chat UI for streaming mode
 - **TypeScript Support**: Fully typed codebase for better development experience
 - **Responsive Design**: Mobile-first design using Tailwind CSS
 - **Dark Mode Support**: Built-in light and dark theme support
@@ -57,30 +56,9 @@ A modern, full-stack Next.js application that demonstrates AI-powered text gener
 
 ## 📖 Usage
 
-### Completion Mode
-Visit `/ui/completion` to access the text completion interface. Enter a prompt and receive a complete AI-generated response.
-
-### Streaming Mode
 Visit `/ui/stream` to experience real-time text streaming. Watch as the AI response appears character by character.
 
 ## 🔌 API Endpoints
-
-### POST `/api/completion`
-Generates complete text responses using OpenAI's GPT model.
-
-**Request Body:**
-```json
-{
-  "prompt": "Your prompt here"
-}
-```
-
-**Response:**
-```json
-{
-  "text": "Generated response text"
-}
-```
 
 ### POST `/api/stream`
 Streams text responses in real-time using OpenAI's GPT model.
@@ -100,13 +78,9 @@ Streams text responses in real-time using OpenAI's GPT model.
 nextjs-ai-app/
 ├── app/
 │   ├── api/
-│   │   ├── completion/
-│   │   │   └── route.ts      # Completion API endpoint
 │   │   └── stream/
 │   │       └── route.ts      # Streaming API endpoint
 │   ├── ui/
-│   │   ├── completion/
-│   │   │   └── page.tsx      # Completion UI page
 │   │   └── stream/
 │   │       └── page.tsx      # Streaming UI page
 │   ├── globals.css           # Global styles
