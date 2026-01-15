@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        OPENAI_API_KEY = credentials ('OPENAI_API_KEY')
+        PORT = '3000'
+    }
+
     stages {
         stage( 'Checkout' ) {
             steps {
@@ -17,7 +22,7 @@ pipeline {
             steps {
                 sh 'docker stop chatgpt-clone-container || true'
                 sh 'docker rm chatgpt-clone-container || true'
-                sh 'docker run -d --name chatgpt-clone-container -p 3000:3000 --env-file .env chatgpt_clone'
+                sh 'docker run -d --name chatgpt-clone-container -p 3000:3000 -e OPENAI_API_KEY=$OPENAI_API_KEY -e PORT=$PORT chatgpt_clone'
             }
         }
     }
