@@ -23,7 +23,7 @@ export default function StreamPage() {
     // Add completion to messages when it finishes loading
     useEffect(() => {
         if (!isLoading && completion && completion.trim()) {
-            setMessages(prev => [...prev, { role: 'assistant', content: completion }]);
+            setMessages((prev: Array<{role: 'user' | 'assistant', content: string}>) => [...prev, { role: 'assistant', content: completion }]);
         }
     }, [completion, isLoading]);
 
