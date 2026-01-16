@@ -18,12 +18,13 @@ pipeline {
                 sh 'docker build -t chatgpt_clone .' 
             }
         }
-        stage( 'Deploy App' ){
+        stage('Deploy App') {
             steps {
                 sh 'docker stop chatgpt-clone-container || true'
                 sh 'docker rm chatgpt-clone-container || true'
-                sh 'docker run -d --name chatgpt-clone-container -p 3000:3000 -e OPENAI_API_KEY=$OPENAI_API_KEY -e PORT=$PORT chatgpt_clone'
+                sh "docker run -d --name chatgpt-clone-container -p 3000:3000 -e OPENAI_API_KEY=$OPENAI_API_KEY -e PORT=$PORT chatgpt_clone"
             }
         }
+
     }
 }
